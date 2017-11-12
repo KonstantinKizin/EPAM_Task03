@@ -5,5 +5,5 @@
         <command-name>search_user</command-name>
         <command-class>controller.command.ShowUsersCommand</command-class>
     </command>
-    
+
 </commands>

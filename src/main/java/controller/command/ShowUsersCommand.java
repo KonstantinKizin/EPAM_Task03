@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,7 +27,7 @@ public class ShowUsersCommand implements Command {
 
 
         try {
-            searchResult = userService.getUser(name , sureName);
+            searchResult = userService.findUser(name , sureName);
             request.setAttribute("users", searchResult);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(SEARCH_RESULT_JSP);
             requestDispatcher.forward(request , response);
