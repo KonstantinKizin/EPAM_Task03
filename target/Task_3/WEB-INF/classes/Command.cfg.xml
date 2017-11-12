@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+
+    <command>
+        <command-name>showUsers</command-name>
+        <command-class>controller.command.ShowUsersCommand</command-class>
+    </command>
+
+
+
+</commands>

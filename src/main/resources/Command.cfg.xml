@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+
+    <command>
+        <command-name>search_user</command-name>
+        <command-class>controller.command.ShowUsersCommand</command-class>
+    </command>
+    
+</commands>
