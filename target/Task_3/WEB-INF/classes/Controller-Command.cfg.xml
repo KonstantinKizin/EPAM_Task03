@@ -6,4 +6,9 @@
         <command-class>controller.command.ShowUsersCommand</command-class>
     </command>
 
+    <command>
+        <command-name>search_</command-name>
+        <command-class>controller.command.ShowUsersCommand</command-class>
+    </command>
+
 </commands>

@@ -1,11 +1,9 @@
 package controller.command;
-import service.ServiceException;
-
-import javax.servlet.ServletException;
+import controller.ControllerException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
 public interface Command {
-    void execute(HttpServletRequest request , HttpServletResponse response) throws ServiceException;
+    void execute(HttpServletRequest request , HttpServletResponse response) throws ControllerException;
 }

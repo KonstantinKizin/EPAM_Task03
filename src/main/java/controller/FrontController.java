@@ -3,13 +3,12 @@ package controller;
 
 import controller.command.Command;
 import controller.command.CommandFactory;
-import service.ServiceException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 public class FrontController extends HttpServlet {
 
@@ -23,8 +22,10 @@ public class FrontController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 
         try {
+
             commandProducer.execute(request,response);
-        } catch (ServiceException e) {
+
+        } catch (ControllerException e) {
             e.printStackTrace();
         }
 

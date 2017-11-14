@@ -1,4 +1,5 @@
 package controller.command;
+import controller.ControllerException;
 import entity.User;
 import service.ServiceException;
 import service.ServiceFactory;
@@ -17,14 +18,14 @@ public class ShowUsersCommand implements Command {
     private UserService userService = serviceFactory.getUserService();
     private final String SEARCH_RESULT_JSP = "/WEB-INF/jsp/Users.jsp";
     private List<User> searchResult;
-
+    private final String NAME = "name";
+    private final String SURE_NAME = "surename";
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException {
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ControllerException {
 
-        String name = request.getParameter("name");
-        String sureName = request.getParameter("surename");
-
+        String name = request.getParameter(NAME);
+        String sureName = request.getParameter(SURE_NAME);
 
         try {
             searchResult = userService.findUser(name , sureName);
@@ -32,10 +33,8 @@ public class ShowUsersCommand implements Command {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(SEARCH_RESULT_JSP);
             requestDispatcher.forward(request , response);
         } catch (ServiceException | ServletException | IOException e) {
-            throw new ServiceException(e);
+            throw new ControllerException(e);
         }
-
-
 
     }
 }
