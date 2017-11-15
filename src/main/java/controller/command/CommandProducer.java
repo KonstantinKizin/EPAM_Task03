@@ -15,18 +15,18 @@ public class CommandProducer implements Command {
 
     private final String HIDDEN_PARAMETER = "hidden";
     private final String XML_SETTING_FILE_NAME = "Controller-Command.cfg.xml";
-    final CommandMapCreator commandMapCreator = new CommandMapCreator(XML_SETTING_FILE_NAME);
+    final CommandMapCreator commandMapCreator = new CommandMapCreator();
 
 
-    public CommandProducer() {
+    public CommandProducer(){
             init();
     }
 
-    private void init() {
+    private void init()  {
         try {
             commandMap = commandMapCreator.buildCommandMap();
         } catch (ControllerException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

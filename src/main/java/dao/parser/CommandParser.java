@@ -1,4 +1,5 @@
 package dao.parser;
+import dao.exception.DAOException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,11 +22,11 @@ public class CommandParser {
     private final List<String > CLASS_NAMES_LIST = new ArrayList<>();
     private final String COMMAND_NAME_TAG = "command-name";
     private final String COMMAND_CLASS_NAME_TAG = "command-class";
-    private final String CFG_FILE_NAME;
+    private final String XML_SETTING_FILE_NAME = "Controller-Command.cfg.xml";
 
 
-    public CommandParser(String cfgFileName){
-        CFG_FILE_NAME = cfgFileName;
+    public CommandParser(){
+
     }
 
 
@@ -77,13 +78,18 @@ public class CommandParser {
 
     }
 
-    public Document getDocument() throws ParserConfigurationException, IOException, SAXException {
+    public Document getDocument() throws DAOException {
+        try{
+            File file = new File(this.getAbsoluteFilePath(XML_SETTING_FILE_NAME));
+            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = builderFactory.newDocumentBuilder();
+            final Document document = builder.parse(file);
+            return document;
+        }catch (ParserConfigurationException | IOException | SAXException e ){
+            throw new DAOException(e);
+        }
 
-        File file = new File(this.getAbsoluteFilePath(CFG_FILE_NAME));
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = builderFactory.newDocumentBuilder();
-        final Document document = builder.parse(file);
-        return document;
+
     }
 
 

@@ -2,7 +2,7 @@ package controller;
 
 
 import controller.command.Command;
-import controller.command.CommandFactory;
+import controller.command.factory.CommandFactory;
 import controller.exception.ControllerException;
 
 import javax.servlet.ServletException;

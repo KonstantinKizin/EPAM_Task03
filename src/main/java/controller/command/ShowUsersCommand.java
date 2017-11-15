@@ -1,9 +1,10 @@
 package controller.command;
 import controller.exception.ControllerException;
 import entity.User;
-import service.exception.ServiceException;
-import service.ServiceFactory;
+import service.Service;
 import service.UserService;
+import service.exception.ServiceException;
+import service.factory.ServiceFactory;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +16,15 @@ import java.util.List;
 public class ShowUsersCommand implements Command {
 
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    private UserService userService = serviceFactory.getUserService();
+    private Service service = serviceFactory.getService("userService");
+    private UserService userService = (UserService) service;
     private final String SEARCH_RESULT_JSP = "/WEB-INF/jsp/Users.jsp";
     private List<User> searchResult;
     private final String NAME = "name";
     private final String SURE_NAME = "surename";
+
+    public ShowUsersCommand() throws ServiceException {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ControllerException {
