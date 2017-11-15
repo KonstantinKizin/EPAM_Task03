@@ -2,7 +2,6 @@ package service.factory;
 
 import service.Service;
 import service.UserService;
-import service.exception.ServiceException;
 import service.impl.ControllerCommandServiceImpl;
 import service.impl.UserServiceImpl;
 
