@@ -1,5 +1,5 @@
 package controller.command;
-import controller.ControllerException;
+import controller.exception.ControllerException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

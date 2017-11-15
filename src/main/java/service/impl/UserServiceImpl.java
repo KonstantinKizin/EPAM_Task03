@@ -1,10 +1,10 @@
 package service.impl;
 
-import dao.DAOException;
+import dao.exception.DAOException;
 import dao.DAOFactory;
 import dao.UserDao;
 import entity.User;
-import service.ServiceException;
+import service.exception.ServiceException;
 import service.UserService;
 import service.validator.Validator;
 import service.validator.ValidatorFactory;

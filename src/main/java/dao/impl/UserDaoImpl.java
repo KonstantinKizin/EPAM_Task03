@@ -1,5 +1,5 @@
 package dao.impl;
-import dao.DAOException;
+import dao.exception.DAOException;
 import dao.UserDao;
 import entity.User;
 
