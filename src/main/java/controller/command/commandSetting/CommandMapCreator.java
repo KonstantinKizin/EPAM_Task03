@@ -13,7 +13,7 @@ import java.util.*;
 public class CommandMapCreator {
 
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    private Service service = serviceFactory.getService("commandService");
+    private Service service = serviceFactory.getService(Service.CONTROLLER_SERVICE);
     private ControllerCommandService commandService = (ControllerCommandService) service;
 
     public CommandMapCreator()  {

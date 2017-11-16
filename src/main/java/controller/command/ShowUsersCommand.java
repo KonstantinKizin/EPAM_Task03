@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowUsersCommand implements Command {
 
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    private UserService userService = (UserService) serviceFactory.getService("userService");
+    private UserService userService = (UserService) serviceFactory.getService(Service.USER_SERVICE);
     private final String SEARCH_RESULT_JSP = "/WEB-INF/jsp/Users.jsp";
     private List<User> searchResult;
     private final String NAME = "name";
