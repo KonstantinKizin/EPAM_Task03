@@ -16,14 +16,13 @@ import java.util.List;
 public class ShowUsersCommand implements Command {
 
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
-    private Service service = serviceFactory.getService("userService");
-    private UserService userService = (UserService) service;
+    private UserService userService = (UserService) serviceFactory.getService("userService");
     private final String SEARCH_RESULT_JSP = "/WEB-INF/jsp/Users.jsp";
     private List<User> searchResult;
     private final String NAME = "name";
     private final String SURE_NAME = "surename";
 
-    public ShowUsersCommand() throws ServiceException {
+    public ShowUsersCommand() {
     }
 
     @Override
