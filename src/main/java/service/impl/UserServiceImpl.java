@@ -22,7 +22,8 @@ public class UserServiceImpl implements UserService {
     public List<User> findUser(String name, String sureName) throws ServiceException {
 
         if (!validator.validate(new String[]{name, sureName})) {
-            return null;
+            return null;// что? правда null при невалидных параметрах?
+            // а исключение где?
         } else {
             try {
                 return userDao.getUser(name, sureName);

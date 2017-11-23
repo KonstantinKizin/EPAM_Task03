@@ -26,7 +26,8 @@ public class FrontController extends HttpServlet {
         try {
             commandProducer.execute(request,response);
         } catch (ControllerException e) {
-            e.printStackTrace();
+            e.printStackTrace();// правда просто printStackTrace?
+            // а пользователю что отправим?
         }
 
     }

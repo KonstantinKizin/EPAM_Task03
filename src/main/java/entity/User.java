@@ -1,4 +1,4 @@
-package entity;
+package entity;//а про уровни пакетов я Пушкину рассказывала?
 
 public class User {
 

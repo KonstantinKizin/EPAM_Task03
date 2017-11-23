@@ -3,7 +3,7 @@ import dao.exception.DAOException;
 import dao.UserDao;
 import entity.User;
 
-import java.sql.*;
+import java.sql.*;// не импортим через *
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +16,12 @@ public class UserDaoImpl implements UserDao {
 
     private Connection getConnection() throws DAOException {
         try{
-            Class.forName(FULL_DRIVER_NAME);
+            Class.forName(FULL_DRIVER_NAME);// зачем ты написал так, чтобы гружить драйвер каждый раз при вызове нового методы
+            // ты дрйвер принтера перед каждой новой страницей перети переустанавливаешь?
             Connection connection = DriverManager.getConnection(URL,LOGIN,PW);
             return connection;
         }catch(SQLException | ClassNotFoundException e){
-            throw new DAOException(e);
+            throw new DAOException(e);// свои исключение крайне желательно выбрасывать со своим сообщением throw new DAOException("что тут случилось", e)
         }
 
     }
@@ -29,7 +30,8 @@ public class UserDaoImpl implements UserDao {
     public void insert(User user) throws DAOException {
 
         boolean res = false;
-        final String sql = "insert into users values(?,?,?,?)";
+        final String sql = "insert into users values(?,?,?,?)";// как именуются final поля
+        //и зачем при возове метода каждый раз создавать заново эту переменную?
         try(final Connection connection =  getConnection();
             final PreparedStatement statement = connection.prepareStatement(sql);
         ){
@@ -55,7 +57,7 @@ public class UserDaoImpl implements UserDao {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
-                String userName = rs.getString("name");
+                String userName = rs.getString("name");// неименованные константные строки
                 String userSureName = rs.getString("surename");
                 String userPhoneNumber = rs.getString("phone_number");
                 String userEmail = rs.getString("e-mail");
