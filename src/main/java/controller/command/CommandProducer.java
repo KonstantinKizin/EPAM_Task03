@@ -14,7 +14,7 @@ public class CommandProducer implements Command {
 
 
     private final String HIDDEN_PARAMETER = "hidden";
-    final CommandMapCreator commandMapCreator = new CommandMapCreator();
+    final CommandMapCreator commandMapCreator = new CommandMapCreator();// куда делся атрибут достапа?
 
 
     public CommandProducer(){
@@ -25,7 +25,8 @@ public class CommandProducer implements Command {
         try {
             commandMap = commandMapCreator.buildCommandMap();
         } catch (ControllerException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e);// свой рантайм со своим названием нужен
+            // а ты даже свое сообщене поленлся написать
         }
     }
 
