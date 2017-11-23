@@ -35,7 +35,8 @@ public class UserValidatorImpl implements Validator {
     }
 
     @Override
-    public boolean validate(Object... objects) {
+    public boolean validate(Object... objects) {// крайне неудобная и непродуманная реализация валидатора
+        // плюс каждый раз создавать новый объект, чтобы при многопоточной обработке запросов не шарить ненужные данные
         String name = (String)objects[INDEX_OF_NAME];
         String sureName = (String)objects[INDEX_OF_SURENAME];
 
